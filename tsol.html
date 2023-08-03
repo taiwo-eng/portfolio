@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>thesoundsoflagos</title>
+		<meta name="description" content="interactive website that brings the sounds of lagos to people self isolating at home." />
+		<meta name="keywords" content="designer, user experience, user interface, product designer, ux/ui, graphic designer, web designer, design, lagos, nigeria, west africa" />
+		<meta name="author" content="kehin•de" />
+
+		<link rel="shortcut icon" href="favicon-tsol.svg">
+		<link href="https://fonts.googleapis.com/css2?family=Syncopate:wght@400;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/styletsol.css" />
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/paper.js/0.10.3/paper-full.js"></script>
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/howler/2.0.3/howler.js"></script>
+
+		<script type="text/paperscript" canvas="myCanvas">
+				var keyData = {
+		q: {
+			sound: new Howl({
+	  		src: ['assets/sounds/cnn-tsol-1.mp3']
+			}),
+		},
+		w: {
+			sound: new Howl({
+	  		src: ['assets/sounds/cnn-tsol-2.mp3']
+			}),
+		},
+		e: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-3.mp3']
+			}),
+		},
+		r: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-4.mp3']
+			}),
+		},
+			t: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-5.mp3']
+			}),
+		},
+		y: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-6.mp3']
+			}),
+		},
+		u: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-7.mp3']
+			}),
+		},
+		i: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-8.mp3']
+			}),
+		},
+		o: {
+			sound: new Howl({
+				src: ['assets/sounds/cnn-tsol-9.mp3']
+			}),
+		},
+		p: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-10.mp3']
+			}),
+		},
+		a: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-11.mp3']
+			}),
+		},
+		s: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-12.mp3']
+			}),
+		},
+			d: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-13.mp3']
+			}),
+		},
+		f: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-14.mp3']
+			}),
+		},
+		g: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-15.mp3']
+			}),
+		},
+		h: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-16.mp3']
+			}),
+		},
+		j: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-17.mp3']
+			}),
+		},
+		k: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-18.mp3']
+			}),
+		},
+		l: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-19.mp3']
+			}),
+		},
+		z: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-20.mp3']
+			}),
+		},
+		x: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-21.mp3']
+			}),
+		},
+		c: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-22.mp3']
+			}),
+		},
+		v: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-23.mp3']
+			}),
+		},
+		b: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-24.mp3']
+			}),
+		},
+		n: {
+			sound: new Howl({
+				src: ['assets/sounds/cnn-tsol-25.mp3']
+			}),
+		},
+		m: {
+			sound: new Howl({
+	  			src: ['assets/sounds/cnn-tsol-26.mp3']
+			}),
+		}
+	};
+
+	var circles = [];
+
+	function onKeyDown(event) {
+
+		<!-- If truthy (if keyData exists do this else dont do anything) -->
+		if(keyData[event.key]) {
+			var maxPoint = new Point(view.size.width, view.size.height);
+
+			<!-- Basically it is doing this: new Point(Math.random(), Math.random()) -->
+			var randomPoint = Point.random();
+
+			<!-- Pretty much doing Math.random() * maxPoint -->
+			var point = maxPoint * randomPoint;
+
+			var newCircle = new Path.Circle(point, 500);
+			newCircle.fillColor = keyData[event.key].color;
+			keyData[event.key].sound.play();
+			circles.push(newCircle);
+
+			<!-- Cant do this because push() pushes in the string "orange" since it is the last time returned -->
+			<!-- circles.push(new Path.Circle(point, 500).fillColor = "orange"); -->
+		}
+	}
+
+	<!-- On each frame perform animate - change hue color and scale circle size -->
+	function onFrame(event) {
+		<!-- Loop through all circles and perform animate -->
+		<!-- Optimization: need to remove circle once done -->
+		for(var i = 0; i < circles.length; i++) {
+			circles[i].fillColor.hue += 1;
+
+			<!-- Scales by 90% of the size -->
+			circles[i].scale(0.9);
+
+			<!-- Remove circle from array if area is less than 1 -->
+			if(circles[i].area < 1) {
+				circles[i].remove();
+
+				<!-- splice(index, amound to remove) -->
+				circles.splice(i, 1);
+
+				<!-- Console array shrinks till it is empty -->
+				console.log(circles);
+			}
+		}
+	}
+		</script>
+	</head>
+<body>
+	<canvas id="myCanvas" ></canvas>
+
+<div class="header">
+  <a href="#default" class="logo"><img src="assets/logo-white.svg" width="80%"></a>
+  <div class="header-right">
+    <!--<a id ="myBtn" href="#home">GIVE</a>-->
+    <a href="#">SHOP</a>
+  </div>
+</div>
+
+<div class="container">
+	<div class="slideshow-container">
+
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">1 / 3</div> -->
+			  <img src="assets/gbedu-tsol.svg" style="width:100%">
+			  <!-- <div class="text">gbedu</div> -->
+			</div>
+
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">2 / 3</div> -->
+			  <img src="assets/helmet-tsol.svg" style="width:100%">
+			  <!-- <div class="text">helmet</div> -->
+			</div>
+
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">3 / 3</div> -->
+			  <img src="assets/tiger-gen-tsol.svg" style="width:100%">
+			  <!-- <div class="text">gen</div> -->
+			</div>
+
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">1 / 3</div> -->
+			  <img src="assets/adogan-tsol.svg" style="width:100%">
+			  <!-- <div class="text">adogan</div> -->
+			</div>
+
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">2 / 3</div> -->
+			  <img src="assets/siren-tsol.svg" style="width:100%">
+			  <!-- <div class="text">siren</div> -->
+			</div>
+
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">3 / 3</div> -->
+			  <img src="assets/civic-tsol.svg" style="width:100%">
+			  <!-- <div class="text">civic</div> -->
+			</div>
+
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">3 / 3</div> -->
+			  <img src="assets/tyre-tsol.svg" style="width:100%">
+			  <!-- <div class="text">civic</div> -->
+			</div>
+
+	</div>
+</div>
+<br>
+
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<div class="instruction">
+	<h4>PRESS ANY KEY, A - Z TO START</h4>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+  <!-- Modal content -->
+  <div class="modal-content">
+    <div class="modal-header">
+      <span class="close">&times;</span>
+      <h1>SUPPORT THE FIGHT AGAINST COVID-19 IN LAGOS</h1>
+    </div>
+    <div class="modal-body">
+      <p >IF YOU MISS THE SOUNDS OF LAGOS, KINDLY DONATE TO SUPPORT THOSE MOST AFFECTED.</p>
+      <button class="modal-btn">Donate using Bitcoin</button>
+      <!-- <button>Donate using Naira</button> -->
+    </div>
+    <div class="modal-footer">
+      <marquee width="60%" direction="left" height="50px"><h4>WASH YOUR HANDS &nbsp; &nbsp; OBSERVE SOCIAL DISTANCE</h4></marquee>
+    </div>
+  </div>
+
+</div>
+
+<!-- End Modal -->
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 5500); // Change image every 5 seconds
+}
+</script>
+
+<script>
+// Get the modal
+var modal = document.getElementById("myModal");
+
+// Get the button that opens the modal
+var btn = document.getElementById("myBtn");
+
+// Get the <span> element that closes the modal
+var span = document.getElementsByClassName("close")[0];
+
+// When the user clicks the button, open the modal 
+btn.onclick = function() {
+  modal.style.display = "block";
+}
+
+// When the user clicks on <span> (x), close the modal
+span.onclick = function() {
+  modal.style.display = "none";
+}
+
+// When the user clicks anywhere outside of the modal, close it
+window.onclick = function(event) {
+  if (event.target == modal) {
+    modal.style.display = "none";
+  }
+}
+</script>
+
+<!-- <div class="container" style="padding-left:20px">
+  <h1>Responsive Header</h1>
+  <p>Resize the browser window to see the effect.</p>
+  <p>Some content..</p>
+</div> -->
+
+</body>

@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>minilivn</title>
+		<meta name="description" content="furniture designer" />
+		<meta name="keywords" content="designer, user experience, user interface, product designer, ux/ui, graphic designer, web designer, design, lagos, nigeria, west africa, canada, vancouver, senior product designer, senior ux/ui designer, san francisco, new york, usa" />
+		<meta name="author" content="kehin•de" />
+
+		<link rel="shortcut icon" href="favicon.svg">
+    	<link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/lomo-style.css" />
+		
+		<meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="http://kehin.de/minilivn" />
+        <meta name="twitter:creator" content="@tejvmade" />
+		<meta property="og:title" content="minilivn item 1" />
+        <meta property="og:description" content="Bauhaus-inspired & minimalist furniture." />
+        <meta property="og:image" content="assets/minilivn.png" />
+		
+<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("You need an AR-capable device.");</script>
+	</head>
+<body>
+        <main>
+			<div data-scroll>
+				<div class="message">USE AN AR-CAPABLE DEVICE</div>
+			</div>
+		</main>
+
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="#home" class="active"><img src="assets/minilivn-logo.svg" width="40%"></a>
+  </div>
+  
+  <!-- Left-aligned links (default) -->
+  <a href="minilivn-preorder">INFO</a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <a href="minilivn-preorder">PREORDER</a>
+  </div>
+  
+</div>
+
+<div class="container">
+	<div class="slideshow-container">
+
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">1 / 3</div> -->
+			  <img src="assets/minilivn-chair.jpg" width="100%">
+			  <!-- <div class="text">chair</div> -->
+			</div>
+
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">2 / 3</div> -->
+			  <img src="assets/minilivn-chair-basket.jpg" width="100%">
+			  <!-- <div class="text">chair</div> -->
+			</div>
+			
+			<div class="mySlides fade">
+			  <!-- <div class="numbertext">3 / 3</div> -->
+			  <img src="assets/minilivn-chair-top.jpg" width="100%">
+			  <!-- <div class="text">chair</div> -->
+			</div>
+
+	</div>
+</div>
+<div style="text-align:center">
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+  <span class="dot"></span> 
+</div>
+
+<div class="instruction">
+	<button class="btn"><img class="btn-icon" src="assets/arkit.svg"> VIEW IN AR</button>
+	<!-- <h4>VIEW IN AR</h4> -->
+</div>
+
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 8500); // Change image every 8.5 seconds
+}
+</script>
+
+</body>

@@ -1,0 +1,317 @@
+farticle,aside,details,figcaption,figure,footer,header,hgroup,main,nav,section,summary{display:block;}audio,canvas,video{display:inline-block;}audio:not([controls]){display:none;height:0;}[hidden]{display:none;}html{font-family: 'Zilla Slab', serif;-ms-text-size-adjust:100%;-webkit-text-size-adjust:100%;}body{margin:0;}a:focus{outline:thin dotted;}a:active,a:hover{outline:0;}h1{font-size:2em;margin:0.67em 0;}abbr[title]{border-bottom:1px dotted;}b,strong{font-weight:bold;}dfn{font-style:italic;}hr{-moz-box-sizing:content-box;box-sizing:content-box;height:0;}mark{background:#ff0;color:#fff;}code,kbd,pre,samp{font-family:monospace,serif;font-size:1em;}pre{white-space:pre-wrap;}q{quotes:"\201C" "\201D" "\2018" "\2019";}small{font-size:80%;}sub,sup{font-size:75%;line-height:0;position:relative;vertical-align:baseline;}sup{top:-0.5em;}sub{bottom:-0.25em;}img{border:0;}svg:not(:root){overflow:hidden;}figure{margin:0;}fieldset{border:1px solid #c0c0c0;margin:0 2px;padding:0.35em 0.625em 0.75em;}legend{border:0;padding:0;}button,input,select,textarea{font-family:inherit;font-size:100%;margin:0;}button,input{line-height:normal;}button,select{text-transform:none;}button,html input[type="button"],input[type="reset"],input[type="submit"]{-webkit-appearance:button;cursor:pointer;}button[disabled],html input[disabled]{cursor:default;}input[type="checkbox"],input[type="radio"]{box-sizing:border-box;padding:0;}input[type="search"]{-webkit-appearance:textfield;-moz-box-sizing:content-box;-webkit-box-sizing:content-box;box-sizing:content-box;}input[type="search"]::-webkit-search-cancel-button,input[type="search"]::-webkit-search-decoration{-webkit-appearance:none;}button::-moz-focus-inner,input::-moz-focus-inner{border:0;padding:0;}textarea{overflow:auto;vertical-align:top;}table{border-collapse:collapse;border-spacing:0;}
+*,
+*::after,
+*::before {
+	box-sizing: border-box;
+}
+
+body{
+    color: white;
+	margin: 0;
+	font-family: 'Zilla Slab', serif;
+	background: #030706;
+}
+h1,h2,h3,h4,h5,h6,p{
+    font-weight: 300;
+    line-height: 1.5em;
+}
+a {
+	text-decoration-style: none;
+	text-decoration: none;
+	color: white;
+}
+
+a:hover {
+	text-decoration-style: none;
+	text-decoration: underline;
+	color: white;
+}
+
+/* Add a black background color to the top navigation */
+.navbar {
+  background-color: #030706;
+  overflow: hidden;
+}
+
+/* Style the links inside the navigation bar */
+.navbar a {
+  float: left;
+  color: #ffffff;
+  text-align: center;
+  padding: 15px 30px;
+  text-decoration: none;
+  font-size: 20px;
+}
+
+/* Change the color of links on hover */
+.navbar a:hover {
+  color: white;
+}
+
+/* Add a color to the active/current link */
+.navbar a.active {
+  color: white;
+}
+/* Bottom navbar */
+.navbar-bottom {
+  overflow: hidden;
+  background-color: #030706;  
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+}
+
+.navbar-bottom a {
+  float: left;
+  display: block;
+  color: white;
+  text-align: center;
+  padding: 14px 16px;
+  text-decoration: none;
+  font-size: 14px;
+}
+
+.navbar-bottom a:hover {
+  color: white;
+}
+
+.navbar-bottom a.active {
+  background-color: #030706;
+  color: #ffffff;
+}
+
+.navbar-bottom .icon {
+  display: none;
+}
+
+
+.logo{
+	float: left;
+	margin: 0 45% 0 5%;
+}
+.hero{
+	text-align: center;
+	margin: 0 35%;
+	padding: 10% 0;
+}
+.hero h1{
+	font-weight: 300;
+}
+
+.hero a{
+    color: white;
+}
+
+.outro{
+	text-align: center;
+	margin: 0 25%;
+	padding: 20% 0;
+}
+
+.outro h1{
+	font-weight: 300;
+}
+
+.work{
+	margin: 0 auto;
+	padding: 2% 10%;
+}
+
+.work-item{
+	padding-bottom: 10px;
+}
+
+.work-item-image{
+    /*background-image: url("../assets/bg-img.png");*/
+	width: 100%;
+	height: auto;
+	margin-bottom: 10px;
+}
+
+.case-side{
+	width: 100%;
+	float: left;
+}
+.case-text--sub{
+	color: white;
+}
+.case-main{
+	width: 100%;
+	float: right;
+	padding-right: 10%;
+	margin-bottom: 5%;
+}
+.case-main h1{
+		font-weight: 300;
+	}
+.case-main p{
+	line-height: 1.8em;
+	font-weight: 300;
+}
+
+.case-text{
+	text-overflow: clip;
+	text-align: left;
+	margin-bottom: 5%;
+	
+}
+ul{
+	line-height: 1.8em;
+}
+.footer-spacing{
+	white-space: pre;
+	height: 1.8em;
+}
+
+@media screen and (min-width: 320px) {
+	.case-side{
+		max-width: 100%;
+		float: left;
+		clear: left;
+		margin: 0 1rem 0 0;
+	}
+	.case-main{
+		max-width: 100%;
+		clear: right;
+		float: right;
+	}
+
+	.case-text{
+		text-overflow: clip;
+		text-align: left;
+		
+	}
+}
+
+@media screen and (min-width: 768px) {
+	.case-side{
+		max-width: 100%;
+		float: left;
+		clear: left;
+		margin: 0 0.5rem 0 0;
+	}
+	.case-main{
+		max-width: 100%;
+		clear: right;
+		float: right;
+	}
+
+	.case-text{
+		text-overflow: clip;
+		text-align: left;
+		
+	}
+}
+
+
+@media screen and (min-width: 1024px) {
+	.navbar-bottom {
+		display: none;
+	}
+	.case-side{
+		max-width: 100%;
+		float: left;
+		/*clear: left;*/
+		/*margin: 0 2% 0 0;*/
+	}
+	.case-main{
+		max-width: 100%;
+		/*clear: right;*/
+		float: right;
+	}
+
+	.case-text{
+		text-overflow: clip;
+		text-align: left;
+	}
+}
+
+@media screen and (min-width: 1440px) {
+	.navbar-bottom {
+		display: none;
+	}
+	.case-side{
+		max-width: 25%;
+		float: left;
+		clear: left;
+		margin: 0 1rem 0 0;
+	}
+	.case-main{
+		max-width: 75%;
+		clear: right;
+		float: right;
+	}
+
+	.case-text{
+		text-overflow: clip;
+		text-align: left;
+		
+	}
+}
+
+@media screen and (max-width: 1024px) {
+		.logo {
+		float: left;
+		margin: 0 35% 0 5%;
+	}
+		.hero{
+		text-align: center;
+		margin: 0 25%;
+		padding: 20% 0;
+	}
+		.outro{
+		text-align: center;
+		margin: 0 15%;
+		padding: 20% 0;
+	}
+		.work{
+		margin: 0 auto;
+		padding: 2% 8%;
+	}
+}
+
+@media screen and (max-width: 768px) {
+		.navbar {
+		display: none;
+	}
+		.hero{
+		text-align: center;
+		margin: 0 5%;
+		padding: 10% 0;
+	}
+		.outro{
+		text-align: center;
+		margin: 0 15%;
+		padding: 10% 0;
+	}
+		.work{
+		margin: 0 auto;
+		padding: 2% 8%;
+	}
+}
+@media screen and (max-width: 425px){
+	.work-item-category{
+		display: none;
+	}
+	.work-item{
+		margin-bottom: 15px;
+	}
+	.work-item-title{
+		margin: 5px 0px;
+		font-size: 1.2rem;
+	}
+}
+
+@media screen and (max-width: 600px) {
+  .navbar-bottom .responsive .icon {
+    position: absolute;
+    right: 0;
+    bottom:0;
+  }
+  .navbar-bottom .responsive a {
+    float: none;
+    display: block;
+    text-align: left;
+  }
+
+}

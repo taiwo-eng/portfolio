@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en" class="no-js">
+	<head>
+		<meta charset="UTF-8" />
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>minilivn</title>
+		<meta name="description" content="furniture designer" />
+		<meta name="keywords" content="designer, user experience, user interface, product designer, ux/ui, graphic designer, web designer, design, lagos, nigeria, west africa, canada, vancouver, senior product designer, senior ux/ui designer, san francisco, new york, usa" />
+		<meta name="author" content="kehin•de" />
+
+		<link rel="shortcut icon" href="favicon.svg">
+        <link rel="preconnect" href="https://fonts.gstatic.com"> 
+        <link href="https://fonts.googleapis.com/css2?family=Rokkitt:wght@100;200;300;400;500;600;700&display=swap" rel="stylesheet">
+		<link rel="stylesheet" type="text/css" href="css/lomo-style.css" />
+		
+		<meta name="twitter:card" content="summary" />
+        <meta name="twitter:site" content="http://kehin.de/minilivn" />
+        <meta name="twitter:creator" content="@tejvmade" />
+		<meta property="og:title" content="minilivn item 1" />
+        <meta property="og:description" content="Bauhaus-inspired & minimalist furniture." />
+        <meta property="og:image" content="assets/og-minilivn.png" />
+		
+<script>document.documentElement.className="js";var supportsCssVars=function(){var e,t=document.createElement("style");return t.innerHTML="root: { --tmp-var: bold; }",document.head.appendChild(t),e=!!(window.CSS&&window.CSS.supports&&window.CSS.supports("font-weight","var(--tmp-var)")),t.parentNode.removeChild(t),e};supportsCssVars()||alert("You need an AR-capable device.");</script>
+	</head>
+<body>
+<!--     <main>
+			<div data-scroll>
+				<div class="message">USE AN AR-CAPABLE DEVICE</div>
+				
+				
+			</div>
+		</main> -->
+
+<div class="topnav">
+
+  <!-- Centered link -->
+  <div class="topnav-centered">
+    <a href="minilivn" class="active"><img src="assets/minilivn-logo.svg" width="40%"></a>
+  </div>
+  
+  <!-- Left-aligned links (default) -->
+  <a href="#info">INFO</a>
+  
+  <!-- Right-aligned links -->
+  <div class="topnav-right">
+    <a href="#preorder">PREORDER</a>
+  </div>
+
+</div>
+
+<div class="sidebar">
+	<div class="img-product"><img src="assets/minilivn-chair-basket-cropped.jpg"></div>
+	<div class="img-product"><img src="assets/minilivn-chair.jpg"></div>
+	<div class="img-product"><img src="assets/minilivn-chair-top-cropped.jpg"></div>
+</div>
+
+<div class="content">
+  <h1 class="price">$225</h1>
+  <h2 id="info">minilivn item 1</h2>
+  <p> minilivn item 1 is a new take on contemporary furniture design, inspired by the Bauhaus School. It is bare and minimalist in its design style and fabrication.</p><p> Suitable for use as either a stool or coffee table, it uses a simple, yet striking combination of wood and steel to balance form and function.</p>
+  <p class="stock-info">Limited stock and colors</p>
+  <p class="stock-info">Color</p>
+  <p ><span class="color-dot-1"></span> <span class="color-dot-1 color-dot-2"></span> <span class="color-dot-1 color-dot-3"></span></p>
+
+  <div id="preorder" class="container">
+  <form name="kikelomo-preorders-form">
+  <div class="row">
+    <div class="col-40">
+    	<label for="fname">NAME</label>
+      <input type="text" id="fname" name="name" placeholder="Bond James">
+    </div>
+    <div class="col-60">
+    <label for="email">EMAIL</label>
+      <input required type="text" id="email" name="email" placeholder="Enter your email">
+    </div>
+  </div>
+  <div class="row">
+    
+  </div>
+
+  <div class="row">
+    <input type="submit" value="PREORDER" id="btnsubmit" onclick="submitForm()">
+  </div>
+  </form>
+</div>
+</div>
+
+<!-- Form Polyfills -->
+
+<script src="https://wzrd.in/standalone/formdata-polyfill"></script>
+<script src="https://wzrd.in/standalone/promise-polyfill@latest"></script>
+<script src="https://wzrd.in/standalone/whatwg-fetch@latest"></script>
+
+<!-- Form Script -->
+<script>
+  const scriptURL = 'https://script.google.com/macros/s/AKfycbxpc-sx9qR2ebf_AwHKNc5GjjJJzDC74kLHsPcJrQiZfvcqj-0/exec'
+  const form = document.forms['kikelomo-preorders-form']
+
+  form.addEventListener('submit', e => {
+    e.preventDefault()
+    fetch(scriptURL, { method: 'POST', body: new FormData(form)})
+      .then(response => console.log('Success!', response))
+      .catch(error => console.error('Error!', error.message))
+  })
+</script>
+<script>
+var slideIndex = 0;
+showSlides();
+
+function showSlides() {
+  var i;
+  var slides = document.getElementsByClassName("mySlides");
+  var dots = document.getElementsByClassName("dot");
+  for (i = 0; i < slides.length; i++) {
+    slides[i].style.display = "none";  
+  }
+  slideIndex++;
+  if (slideIndex > slides.length) {slideIndex = 1}    
+  for (i = 0; i < dots.length; i++) {
+    dots[i].className = dots[i].className.replace(" active", "");
+  }
+  slides[slideIndex-1].style.display = "block";  
+  dots[slideIndex-1].className += " active";
+  setTimeout(showSlides, 8500); // Change image every 8.5 seconds
+}
+</script>
+</body>
